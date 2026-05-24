@@ -119,8 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // -----------------------------------------
     // 4. Calendar Link Generation (Language-aware)
     // -----------------------------------------
-    const googleStart = '20271001T200000Z';
-    const googleEnd = '20271002T020000Z';
+    const googleStart = '20271001T203000Z';
+    const googleEnd = '20271002T010000Z';
     const rawLoc = 'Mechanicsburg, OH 43044';
 
     function updateCalendarLinks() {
