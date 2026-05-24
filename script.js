@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
             secsLabel: "Secs",
             addCalendar: "Add to Calendar",
             viewMap: "View Map",
+        
+            googleMaps: "Google Maps",
+            appleMaps: "Apple Maps",
+        
             formalInvite: "Formal Invitation to Follow",
             googleCal: "Google Calendar",
             appleCal: "Apple Calendar (.ics)",
@@ -31,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
             calDesc: "Save the Date for Hyeokju Gwon (Jason) & Madison Marshall's wedding! Formal Invitation to Follow."
         },
         ko: {
-            saveTheDate: "날짜를 기억해 주세요", /* Elegant translation of 'Save the Date' */
-            jasonSub: "", /* Empty hides 'Jason' on the Korean version */
+            saveTheDate: "날짜를 기억해 주세요",
+            jasonSub: "",
             announcement: "저희 결혼합니다",
             groom: "권혁주",
             bride: "메디슨 마샬",
@@ -44,6 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
             secsLabel: "초",
             addCalendar: "일정 추가",
             viewMap: "지도 보기",
+        
+            googleMaps: "구글 지도",
+            appleMaps: "애플 지도",
+        
             formalInvite: "정식 청첩장은 추후에 보내드릴 예정입니다",
             googleCal: "구글 캘린더",
             appleCal: "애플 캘린더 (.ics)",
