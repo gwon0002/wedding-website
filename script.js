@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -----------------------------------------
     // 2. Countdown Timer Logic
     // -----------------------------------------
-    const weddingDate = new Date(2027, 9, 1, 16, 0, 0).getTime();
+    const weddingDate = new Date(2027, 9, 1, 16, 30, 0).getTime();
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Outlook Calendar Link
-        const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(title)}&startdt=2027-10-01T16:00:00-04:00&enddt=2027-10-01T22:00:00-04:00&body=${encodeURIComponent(desc)}&location=${encodeURIComponent(loc)}`;
+        const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(title)}&startdt=2027-10-01T16:30:00-04:00&enddt=2027-10-01T21:00:00-04:00&body=${encodeURIComponent(desc)}&location=${encodeURIComponent(loc)}`;
         const outlookLink = document.getElementById('add-outlook');
         if (outlookLink) {
             outlookLink.href = outlookUrl;
