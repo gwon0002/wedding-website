@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -----------------------------------------
     // 2. Countdown Timer Logic
     // -----------------------------------------
-    const weddingDate = new Date(2027, 9, 1, 16, 30, 0).getTime();
+    const weddingDate = new Date(2027, 10, 1, 13, 30, 0).getTime();
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
