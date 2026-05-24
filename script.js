@@ -117,6 +117,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -----------------------------------------
+    // 3.5 Maps Dropdown
+    // -----------------------------------------
+    const btnMaps = document.getElementById('btn-maps');
+    const mapsDropdown = document.getElementById('maps-dropdown');
+    
+    if (btnMaps && mapsDropdown) {
+        btnMaps.addEventListener('click', (e) => {
+            e.stopPropagation();
+    
+            const isExpanded =
+                btnMaps.getAttribute('aria-expanded') === 'true';
+    
+            btnMaps.setAttribute('aria-expanded', !isExpanded);
+    
+            mapsDropdown.classList.toggle('show');
+        });
+    
+        document.addEventListener('click', () => {
+            btnMaps.setAttribute('aria-expanded', 'false');
+            mapsDropdown.classList.remove('show');
+        });
+    }
+
+    // -----------------------------------------
     // 4. Calendar Link Generation (Language-aware)
     // -----------------------------------------
     const googleStart = '20271001T193000Z';
