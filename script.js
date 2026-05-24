@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             addCalendar: "일정 추가",
             viewMap: "지도 보기",
         
-            googleMaps: "구글 맵",
-            appleMaps: "애플 맵",
+            googleMaps: "구글 지도",
+            appleMaps: "애플 지도",
         
             formalInvite: "정식 청첩장은 추후에 보내드릴 예정입니다",
             googleCal: "구글 캘린더",
