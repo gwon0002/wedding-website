@@ -1,0 +1,662 @@
+/* 
+   Save the Date - Premium CSS Stylesheet
+   Designed for Hyeokju Gwon & Madison Marshall's wedding
+*/
+
+/* -----------------------------------------
+   1. Design Tokens & Variables
+   ----------------------------------------- */
+:root {
+    /* Color System */
+    --color-champagne: hsl(38, 30%, 93%);
+    --color-champagne-light: hsl(100, 12%, 97%);
+    --color-cream: hsl(100, 10%, 99%);
+    --color-gold-metallic: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+    --color-gold-solid: #a37c3f;
+    --color-gold-light: rgba(163, 124, 63, 0.12);
+    
+    --color-text-dark: #1c2821; /* Deep forest charcoal */
+    --color-text-muted: #556259; /* Soft sage charcoal */
+    
+    --glass-bg: rgba(255, 255, 255, 0.65); /* Increased opacity for excellent readability */
+    --glass-border: rgba(255, 255, 255, 0.75);
+    --glass-shadow: 0 24px 64px rgba(28, 40, 33, 0.15);
+    --glass-blur: blur(24px);
+
+    /* Fonts */
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --font-script: 'Great Vibes', cursive;
+}
+
+/* -----------------------------------------
+   2. Reset & Global Styles
+   ----------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-text-dark);
+    background-color: var(--color-champagne-light);
+    background-image: url('assets/wedding_background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 2rem 1.5rem;
+}
+
+/* Vignette overlay for rich visual contrast */
+.bg-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgba(43, 37, 32, 0.15) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* -----------------------------------------
+   3. Main Container & Elegant Card
+   ----------------------------------------- */
+.main-container {
+    width: 100%;
+    max-width: 600px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.save-the-date-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--glass-shadow);
+    padding: 3.5rem 2.5rem;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+    /* Animation on load */
+    animation: cardFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes cardFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* -----------------------------------------
+   4. Golden Corner Accents
+   ----------------------------------------- */
+.corner-gold {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 1px solid transparent;
+    pointer-events: none;
+}
+
+.corner-gold::before,
+.corner-gold::after {
+    content: '';
+    position: absolute;
+    background: var(--color-gold-solid);
+}
+
+/* Size and offsets for corner styling */
+.top-left {
+    top: 20px;
+    left: 20px;
+}
+.top-left::before { top: 0; left: 0; width: 100%; height: 1px; }
+.top-left::after { top: 0; left: 0; width: 1px; height: 100%; }
+
+.top-right {
+    top: 20px;
+    right: 20px;
+}
+.top-right::before { top: 0; right: 0; width: 100%; height: 1px; }
+.top-right::after { top: 0; right: 0; width: 1px; height: 100%; }
+
+.bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+.bottom-left::before { bottom: 0; left: 0; width: 100%; height: 1px; }
+.bottom-left::after { bottom: 0; left: 0; width: 1px; height: 100%; }
+
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+.bottom-right::before { bottom: 0; right: 0; width: 100%; height: 1px; }
+.bottom-right::after { bottom: 0; right: 0; width: 1px; height: 100%; }
+
+/* -----------------------------------------
+   5. Card Header Section
+   ----------------------------------------- */
+.card-header {
+    margin-bottom: 2rem;
+}
+
+.save-the-date-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    display: inline-block;
+    animation: fadeInDown 1s ease-out 0.2s both;
+}
+
+.gold-divider {
+    height: 1px;
+    width: 60px;
+    background: var(--color-gold-metallic);
+    margin: 1rem auto;
+    animation: scaleWidth 1s ease-out 0.4s both;
+}
+
+.announcement {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    animation: fadeInDown 1s ease-out 0.5s both;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleWidth {
+    from { width: 0; }
+    to { width: 60px; }
+}
+
+/* -----------------------------------------
+   6. Elegant Names Section
+   ----------------------------------------- */
+.names-section {
+    margin-bottom: 2.5rem;
+}
+
+.name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.couple-name {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: var(--color-text-dark);
+    line-height: 1.1;
+    transition: transform 0.4s ease;
+}
+
+/* Specific Sub-name (Jason Gwon underneath Hyeokju) */
+.sub-name {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #000000; /* Pure black text */
+    margin-top: 0.35rem;
+    position: relative;
+    opacity: 0.95;
+    animation: fadeIn 1.2s ease-out 0.8s both;
+}
+
+.ampersand-container {
+    margin: 0.4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ampersand {
+    font-family: var(--font-sans);
+    font-size: 1.8rem;
+    font-weight: 300;
+    font-style: normal; /* Completely traditional upright ampersand */
+    color: var(--color-gold-solid);
+    line-height: 1;
+    display: inline-block;
+    animation: popAmpersand 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s both;
+}
+
+@keyframes popAmpersand {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* -----------------------------------------
+   7. Details Section (Date & Location)
+   ----------------------------------------- */
+.details-section {
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: var(--color-text-dark);
+}
+
+.detail-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--color-gold-solid);
+}
+
+.event-date {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.event-location {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    font-style: normal;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* -----------------------------------------
+   8. Countdown Timer Section
+   ----------------------------------------- */
+.countdown-section {
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out 1s both;
+}
+
+.countdown-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.countdown-box {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0.8rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(43, 37, 32, 0.04);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.countdown-box:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.65);
+    border-color: rgba(184, 145, 70, 0.3);
+    box-shadow: 0 10px 25px rgba(184, 145, 70, 0.1);
+}
+
+.countdown-value {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-text-dark);
+    line-height: 1.2;
+}
+
+.countdown-label {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+/* -----------------------------------------
+   9. Button & Action Elements
+   ----------------------------------------- */
+.card-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 1.2s both;
+}
+
+.btn {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.9rem 1.6rem;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    outline: none;
+}
+
+.btn-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Primary Button Styling (Add to Calendar) */
+.btn-primary {
+    background: var(--color-text-dark);
+    color: var(--color-champagne);
+    border: 1px solid var(--color-text-dark);
+    box-shadow: 0 4px 15px rgba(43, 37, 32, 0.15);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: transparent;
+    color: var(--color-text-dark);
+    border-color: var(--color-text-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(43, 37, 32, 0.2);
+}
+
+/* Secondary Button Styling (View Map) */
+.btn-secondary {
+    background: transparent;
+    color: var(--color-text-dark);
+    border: 1px solid rgba(43, 37, 32, 0.2);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: var(--color-text-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(43, 37, 32, 0.05);
+}
+
+/* -----------------------------------------
+   10. Interactive Dropdown Menu
+   ----------------------------------------- */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(43, 37, 32, 0.12);
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    min-width: 180px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: var(--color-gold-light);
+    color: var(--color-gold-solid);
+}
+
+.dropdown-item:not(:last-child) {
+    border-bottom: 1px solid rgba(43, 37, 32, 0.05);
+}
+
+/* -----------------------------------------
+   11. Invitation Card Footer
+   ----------------------------------------- */
+.card-footer {
+    margin-top: 1.5rem;
+    animation: fadeInUp 1s ease-out 1.4s both;
+}
+
+.formal-invite {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+}
+
+/* -----------------------------------------
+   11.5. Language Navigation & Fade Animation
+   ----------------------------------------- */
+.language-nav {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(28, 40, 33, 0.05);
+    animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.lang-btn:hover {
+    color: var(--color-gold-solid);
+}
+
+.lang-btn.active {
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+
+.lang-divider {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: rgba(28, 40, 33, 0.2);
+}
+
+/* Card Content Translation Cross-Fade */
+.card-content-fade {
+    transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+}
+
+.card-content-fade.fade-out {
+    opacity: 0;
+}
+
+/* -----------------------------------------
+   12. Responsive Media Queries
+   ----------------------------------------- */
+@media (max-width: 480px) {
+    body {
+        padding: 4.5rem 0.8rem 1.5rem 0.8rem; /* Increased top padding to clear language nav */
+        background-attachment: scroll; /* Critical fix for iOS Safari fixed-background zoom/crop bug */
+        background-position: center center;
+    }
+
+    .language-nav {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .save-the-date-card {
+        padding: 2.5rem 1.2rem;
+        background: rgba(255, 255, 255, 0.45); /* High glass translucency so background trees show through */
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .details-section {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .countdown-box {
+        background: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .couple-name {
+        font-size: 2.1rem;
+    }
+
+    .ampersand {
+        font-size: 2.8rem;
+    }
+
+    .event-date {
+        font-size: 1.2rem;
+    }
+
+    .countdown-value {
+        font-size: 1.4rem;
+    }
+
+    .countdown-label {
+        font-size: 0.55rem;
+        letter-spacing: 0.1em;
+    }
+
+    .card-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+
+    .dropdown-container, 
+    .btn {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        bottom: 100%;
+        width: 100%;
+    }
+}
