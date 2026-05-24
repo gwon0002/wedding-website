@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -----------------------------------------
     // 4. Calendar Link Generation (Language-aware)
     // -----------------------------------------
-    const googleStart = '20271001T203000Z';
+    const googleStart = '20271001T193000Z';
     const googleEnd = '20271002T010000Z';
     const rawLoc = 'Mechanicsburg, OH 43044';
 
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Outlook Calendar Link
-        const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(title)}&startdt=2027-10-01T16:30:00-04:00&enddt=2027-10-01T21:00:00-04:00&body=${encodeURIComponent(desc)}&location=${encodeURIComponent(loc)}`;
+        const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(title)}&startdt=2027-10-01T15:30:00-04:00&enddt=2027-10-01T21:00:00-04:00&body=${encodeURIComponent(desc)}&location=${encodeURIComponent(loc)}`;
         const outlookLink = document.getElementById('add-outlook');
         if (outlookLink) {
             outlookLink.href = outlookUrl;
