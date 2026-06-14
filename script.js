@@ -113,6 +113,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnCalendar && calendarDropdown) {
         btnCalendar.addEventListener('click', (e) => {
             e.stopPropagation();
+            
+            // Close maps dropdown if open
+            if (btnMaps && mapsDropdown) {
+                btnMaps.setAttribute('aria-expanded', 'false');
+                mapsDropdown.classList.remove('show');
+            }
+
             const isExpanded = btnCalendar.getAttribute('aria-expanded') === 'true';
             btnCalendar.setAttribute('aria-expanded', !isExpanded);
             calendarDropdown.classList.toggle('show');
@@ -133,6 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnMaps && mapsDropdown) {
         btnMaps.addEventListener('click', (e) => {
             e.stopPropagation();
+
+            // Close calendar dropdown if open
+            if (btnCalendar && calendarDropdown) {
+                btnCalendar.setAttribute('aria-expanded', 'false');
+                calendarDropdown.classList.remove('show');
+            }
     
             const isExpanded =
                 btnMaps.getAttribute('aria-expanded') === 'true';
