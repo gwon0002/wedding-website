@@ -28,6 +28,15 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Immediate Redirect Check -->
+    <script>
+        (function() {
+            if (sessionStorage.getItem('wedding_verified') !== 'true') {
+                window.location.href = 'login.html';
+            }
+        })();
+    </script>
 </head>
 
 <body>
