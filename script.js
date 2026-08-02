@@ -356,8 +356,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Guest Database - 52 registered guests
     const GUEST_DATABASE = [
-        { firstName: "Hyeokju", lastName: "Gwon", phone: "123-456-7890" },
-        { firstName: "Madison", lastName: "Marshall", phone: "098-765-4321" },
+        { firstName: "Hyeokju", lastName: "Gwon", phone: "614-756-9478" },
+        { firstName: "Madison", lastName: "Marshall", phone: "614-353-0109" },
         { firstName: "Jason", lastName: "Gwon", phone: "111-222-3333" },
         { firstName: "Emma", lastName: "Smith", phone: "555-0101" },
         { firstName: "Liam", lastName: "Johnson", phone: "555-0102" },
