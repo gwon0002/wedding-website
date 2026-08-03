@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Login Verification Translation Keys
             guestVerification: "GUEST VERIFICATION",
-            loginAnnouncement: "WELCOME TO THE WEDDING WEBSITE OF HYEOKJU & MADISON",
+            loginAnnouncement: "WELCOME TO THE SAVE THE DATE WEBSITE OF HYEOKJU & MADISON",
             loginSubAnnouncement: "Please enter your name and phone number to access the website.",
             loginFirstName: "First Name",
             loginLastName: "Last Name",
