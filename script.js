@@ -351,6 +351,91 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLanguage(currentLang);
 
     // -----------------------------------------
+    // 5.5 Phone Input Dynamic Formatting
+    // -----------------------------------------
+    const phoneInput = document.getElementById('login-phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+            let input = e.target.value;
+            const selectionStart = e.target.selectionStart;
+            const selectionEnd = e.target.selectionEnd;
+            const originalLength = input.length;
+
+            let digits = input.replace(/\D/g, '');
+            const isKorean = currentLang === 'ko' || digits.startsWith('0') || digits.startsWith('82');
+            let formatted = '';
+
+            if (isKorean) {
+                if (digits.startsWith('82')) {
+                    if (digits.length <= 2) {
+                        formatted = '+' + digits;
+                    } else if (digits.length <= 4) {
+                        formatted = '+' + digits.slice(0, 2) + ' ' + digits.slice(2);
+                    } else if (digits.length <= 8) {
+                        formatted = '+' + digits.slice(0, 2) + ' ' + digits.slice(2, 4) + '-' + digits.slice(4);
+                    } else if (digits.length <= 12) {
+                        formatted = '+' + digits.slice(0, 2) + ' ' + digits.slice(2, 4) + '-' + digits.slice(4, 8) + '-' + digits.slice(8);
+                    } else {
+                        formatted = '+' + digits.slice(0, 2) + ' ' + digits.slice(2, 4) + '-' + digits.slice(4, 8) + '-' + digits.slice(8, 12);
+                    }
+                } else if (digits.startsWith('02')) {
+                    if (digits.length <= 2) {
+                        formatted = digits;
+                    } else if (digits.length <= 5) {
+                        formatted = digits.slice(0, 2) + '-' + digits.slice(2);
+                    } else if (digits.length <= 9) {
+                        formatted = digits.slice(0, 2) + '-' + digits.slice(2, 5) + '-' + digits.slice(5);
+                    } else {
+                        formatted = digits.slice(0, 2) + '-' + digits.slice(2, 6) + '-' + digits.slice(6, 10);
+                    }
+                } else {
+                    if (digits.length <= 3) {
+                        formatted = digits;
+                    } else if (digits.length <= 6) {
+                        formatted = digits.slice(0, 3) + '-' + digits.slice(3);
+                    } else if (digits.length <= 10) {
+                        formatted = digits.slice(0, 3) + '-' + digits.slice(3, 6) + '-' + digits.slice(6);
+                    } else {
+                        formatted = digits.slice(0, 3) + '-' + digits.slice(3, 7) + '-' + digits.slice(7, 11);
+                    }
+                }
+            } else {
+                if (digits.startsWith('1')) {
+                    if (digits.length <= 1) {
+                        formatted = '+1';
+                    } else if (digits.length <= 4) {
+                        formatted = '+1 (' + digits.slice(1);
+                    } else if (digits.length <= 7) {
+                        formatted = '+1 (' + digits.slice(1, 4) + ') ' + digits.slice(4);
+                    } else {
+                        formatted = '+1 (' + digits.slice(1, 4) + ') ' + digits.slice(4, 7) + '-' + digits.slice(7, 11);
+                    }
+                } else {
+                    if (digits.length <= 3) {
+                        formatted = digits;
+                    } else if (digits.length <= 6) {
+                        formatted = '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+                    } else {
+                        formatted = '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6, 10);
+                    }
+                }
+            }
+
+            e.target.value = formatted;
+
+            const newLength = formatted.length;
+            const lengthDiff = newLength - originalLength;
+            let newSelectionStart = selectionStart + lengthDiff;
+            let newSelectionEnd = selectionEnd + lengthDiff;
+
+            if (newSelectionStart < 0) newSelectionStart = 0;
+            if (newSelectionEnd < 0) newSelectionEnd = 0;
+
+            e.target.setSelectionRange(newSelectionStart, newSelectionEnd);
+        });
+    }
+
+    // -----------------------------------------
     // 6. Guest Verification & Login Logic
     // -----------------------------------------
 
@@ -415,9 +500,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return name.trim().toLowerCase().replace(/\s+/g, '');
     }
 
-    // Keep only numeric characters
+    // Keep only numeric characters and handle country codes
     function normalizePhone(phone) {
-        return phone.replace(/\D/g, '');
+        let digits = phone.replace(/\D/g, '');
+        
+        // Handle Korean country code: e.g., starting with 8210... -> replace 82 with 0 -> 010...
+        if (digits.startsWith('82')) {
+            digits = '0' + digits.slice(2);
+        }
+        
+        // Handle US country code: e.g., starting with 1 followed by 10 digits
+        if (digits.startsWith('1') && digits.length === 11) {
+            digits = digits.slice(1);
+        }
+        
+        return digits;
     }
 
     function verifyGuest(first, last, ph) {
