@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loginLastName: "Last Name",
             loginPhone: "Cell Phone Number",
             verifyButton: "Verify & Enter",
-            verificationSuccess: "Verification successful! Welcome to our website.",
+            verificationSuccess: "Verification successful! Welcome to our Save The Date website.",
             verificationFailed: "Verification failed. Please check your spelling and phone number, or contact the couple."
         },
         ko: {
